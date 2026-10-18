@@ -49,3 +49,10 @@ Change statuses only with a linked commit, acceptance tests, and observed deploy
 - Does **not** modify the live root `index.html`; existing tracker remains intact.
 - Mock screens use illustrative amounts and simulated interactions. No true authentication, saved user accounts, invitation delivery, server-side authorization, Zelle handoff or uploaded receipts. Do not use real credentials or personal receipts in demo forms.
 - GitHub Pages publication and live browser interaction have **not** been independently verified; repository commit was confirmed.
+
+## Premium dashboard redesign — 2026-10-18
+- Redesigned the **separate** `prototypes/splitcare-dashboards/index.html` using balanced premium colors, WebGL aurora (custom ShaderUI-inspired GLSL, **not** the official ShaderUI React package), refined navigation/cards, hero artwork, and better typography.
+- iPhone-sized Chromium test (390×844): no JavaScript exceptions, no horizontal overflow; admin/member switching works.
+- Added six dashboard contract tests in `tests/dashboard-prototype.test.mjs`. All six passed in hosted Node test environment. CI workflow includes dashboard file path on push and pull request; remote CI result not independently confirmed.
+- Performance: low-power WebGL context, frame cap (~20fps), reduced render resolution, pause when tab hidden, CSS fallback, reduced-motion and save-data checks.
+- No changes to root tracker `index.html`. This remains a demonstrative prototype, not real sign-in or settlement verification. Does not include bank/QR details.
