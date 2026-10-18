@@ -36,3 +36,12 @@ test("mobile layout guards against sideways scroll",()=>{
  assert.match(html,/max-width:830px/);
  assert.match(html,/min-width:0/);
 });
+
+test("Spin to Pay demo is accessible with preserved local monthly result",()=>{
+ assert.match(html,/function wheelPage\(\)/);
+ assert.match(html,/wheelSegments=\[1,2,1,0,1,3,1,2,1,1\]/);
+ assert.match(html,/data-go="wheel"/);
+ assert.match(html,/localStorage\.setItem\(wheelStore/);
+ assert.match(html,/ONE SPIN PER PERSON PER MONTH/);
+ assert.match(html,/Real SplitCare records are not changed/);
+});
