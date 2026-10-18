@@ -63,3 +63,10 @@ Change statuses only with a linked commit, acceptance tests, and observed deploy
 - Demo result persists in browser localStorage for the example member; reset is available with explicit confirmation. This **does not** affect the live tracker and is **not** server-enforced or cross-device.
 - Verified in headless Chromium at 390px mobile width: SVG rendered, no JavaScript errors or horizontal overflow, spin blocked after first use, result persisted after reload.
 - Dashboard contract tests: **7/7 passed locally**. GitHub Actions outcome still unverified.
+
+## Member payment and admin approval flow prototype — 2026-10-18
+- Made wheel prominent on member home (SVG), added payment handoff and simulated submission form with amount, month, filename-only attachment indicator.
+- Added demo admin queue with per-submission details, settlement acknowledgement checkbox, simulated approve/reject, and in-memory update across role switching. No real file bytes are uploaded or persisted; do not enter real transaction details.
+- Zelle QR and recipient identity are deliberately hidden until an authenticated/private backend exists; payment links do not work yet.
+- Mobile headless Chromium verified: member → submit → admin → cannot approve without checking acknowledgement → approve; 390px viewport no overflow or page errors.
+- Dashboard contract suite: 9/9 locally passing. GitHub Actions status still to be verified; production root tracker unchanged.
