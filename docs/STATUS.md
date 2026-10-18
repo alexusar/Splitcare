@@ -22,7 +22,7 @@
 | OCR checks | **Not started** | Planned with admin review; no OCR engine selected |
 | Zelle/Venmo handoff | **Not started** | No verified payment recipient configured |
 | Page mockups | **Design artifact** | `docs/mockups/index.html` |
-| Automated tests + CI | **Not started** | TDD standard documented, not executed |
+| Automated tests + CI | **Initial foundation committed** | `src/payment-rules.mjs`, `tests/payment-rules.test.mjs`, `.github/workflows/domain-tests.yml`; 6 tests passed locally in working container; GitHub Actions result not yet confirmed |
 
 ## Risks
 1. Any visitor can download the publicly served page; current data is browser-local, not family-private server data. Anyone using a shared browser can access its local information.
@@ -37,3 +37,9 @@ Review six-page mockups and confirm scope (one family vs multiple), then create 
 
 ## How to update this file
 Change statuses only with a linked commit, acceptance tests, and observed deployment. Avoid optimistic percentages.
+
+## Progress update — 2026-10-18 (phone-friendly work)
+- Created six pure-domain tests for weighted wheel slices, pending/confirmed credit, waivers, and duplicate records. All six passed in local Node.js 22 test execution.
+- Pushed rule module, tests, and GitHub Actions test workflow to `main`. CI outcome is not yet verified.
+- Created issues [#1](https://github.com/alexusar/Splitcare/issues/1) through [#5](https://github.com/alexusar/Splitcare/issues/5) for shared database/security, invites/login, wheel migration, reminders/payment handoff and OCR.
+- The new module is **not yet wired to the live SplitCare site**. Server-side auth and spin uniqueness remain unimplemented.
