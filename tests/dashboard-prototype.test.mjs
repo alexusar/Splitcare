@@ -45,3 +45,20 @@ test("Spin to Pay demo is accessible with preserved local monthly result",()=>{
  assert.match(html,/ONE SPIN PER PERSON PER MONTH/);
  assert.match(html,/Real SplitCare records are not changed/);
 });
+
+test("member-to-admin payment review is a non-persistent, explicitly verified demo",()=>{
+ assert.match(html,/function submitDemo\(\)/);
+ assert.match(html,/function decideDemo\(id,decision\)/);
+ assert.match(html,/data-action="submit"/);
+ assert.match(html,/data-verify=/);
+ assert.match(html,/Check the demo settlement confirmation first/);
+ assert.match(html,/Screenshot OCR is not enabled/);
+ assert.match(html,/Recipient identity and QR remain hidden/);
+ assert.match(html,/file not uploaded or stored/);
+});
+test("member dashboard prominently includes a real SVG wheel preview",()=>{
+ assert.match(html,/function memberOverview\(\)/);
+ assert.match(html,/class="wheel-teaser"/);
+ assert.match(html,/drawWheel\(\)/);
+ assert.match(html,/Open the wheel/);
+});
