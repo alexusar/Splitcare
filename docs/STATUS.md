@@ -56,3 +56,10 @@ Change statuses only with a linked commit, acceptance tests, and observed deploy
 - Added six dashboard contract tests in `tests/dashboard-prototype.test.mjs`. All six passed in hosted Node test environment. CI workflow includes dashboard file path on push and pull request; remote CI result not independently confirmed.
 - Performance: low-power WebGL context, frame cap (~20fps), reduced render resolution, pause when tab hidden, CSS fallback, reduced-motion and save-data checks.
 - No changes to root tracker `index.html`. This remains a demonstrative prototype, not real sign-in or settlement verification. Does not include bank/QR details.
+
+## Interactive wheel added to dashboard prototype — 2026-10-18
+- Added visible Spin to Pay page and dashboard shortcut for family and admin demonstration at `prototypes/splitcare-dashboards/index.html`.
+- Wheel has 10 mixed slices (one free, six regular, two double, one triple), legible centrally placed SVG labels, and a visible once-per-month warning.
+- Demo result persists in browser localStorage for the example member; reset is available with explicit confirmation. This **does not** affect the live tracker and is **not** server-enforced or cross-device.
+- Verified in headless Chromium at 390px mobile width: SVG rendered, no JavaScript errors or horizontal overflow, spin blocked after first use, result persisted after reload.
+- Dashboard contract tests: **7/7 passed locally**. GitHub Actions outcome still unverified.
