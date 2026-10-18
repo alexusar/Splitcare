@@ -14,7 +14,7 @@ test("standalone prototype has syntactically valid JavaScript",()=>{
 });
 test("member and admin dashboards remain navigable",()=>{
  for(const id of ["role","nav","screen","roleTitle","modalBody"].filter(x=>x!=="modalBody"))assert.match(html,new RegExp('id="'+id+'"'));
- for(const label of ["FAMILY ADMIN","FAMILY MEMBER","Review payments","My dashboard","Payment approvals"])assert.ok(html.includes(label),label);
+ for(const label of ["FAMILY ADMIN","FAMILY MEMBER","Review payments","My dashboard","Payment approval queue"])assert.ok(html.includes(label),label);
 });
 test("prototype login never claims to authenticate",()=>{
  assert.match(html,/Preview only: sign-in not connected/);
@@ -60,5 +60,5 @@ test("member dashboard prominently includes a real SVG wheel preview",()=>{
  assert.match(html,/function memberOverview\(\)/);
  assert.match(html,/class="wheel-teaser"/);
  assert.match(html,/drawWheel\(\)/);
- assert.match(html,/Open the wheel/);
+ assert.match(html,/Spin the wheel/);
 });
