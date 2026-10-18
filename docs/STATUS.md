@@ -43,3 +43,9 @@ Change statuses only with a linked commit, acceptance tests, and observed deploy
 - Pushed rule module, tests, and GitHub Actions test workflow to `main`. CI outcome is not yet verified.
 - Created issues [#1](https://github.com/alexusar/Splitcare/issues/1) through [#5](https://github.com/alexusar/Splitcare/issues/5) for shared database/security, invites/login, wheel migration, reminders/payment handoff and OCR.
 - The new module is **not yet wired to the live SplitCare site**. Server-side auth and spin uniqueness remain unimplemented.
+
+## SplitCare dashboard prototype — 2026-10-18
+- Added **separate** responsive [member/admin dashboard prototype](../prototypes/splitcare-dashboards/index.html) at `prototypes/splitcare-dashboards/index.html`. It includes role switching, member dues, admin approvals, credit/activity, payment submission demonstration, login and invitation preview.
+- Does **not** modify the live root `index.html`; existing tracker remains intact.
+- Mock screens use illustrative amounts and simulated interactions. No true authentication, saved user accounts, invitation delivery, server-side authorization, Zelle handoff or uploaded receipts. Do not use real credentials or personal receipts in demo forms.
+- GitHub Pages publication and live browser interaction have **not** been independently verified; repository commit was confirmed.
