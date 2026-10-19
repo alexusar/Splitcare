@@ -77,3 +77,9 @@ Change statuses only with a linked commit, acceptance tests, and observed deploy
 - No real signup/sign-in, family data sync, server-enforced one-spin cap or payment validation is available without an authenticated backend. Never present demo login as real.
 - Domain and dashboard tests updated for revised odds: **15/15 passed in isolated Node run**. Headless Chromium at 390px showed no JS errors or horizontal overflow on live tracker or separate prototype. GitHub Pages propagation was not independently verified.
 - No personal Zelle QR, phone number, or financial receipts were committed.
+
+## Correction: multipliers do not create future AppleCare credit — 2026-10-19
+- Confirmed product rule: FREE = $0, 1× = base, 2× = twice base, 3× = three times base, **for that month only**.
+- Updated live due calculations to ignore all prior months' payments and removed applied-credit display and CSV column. Existing stored spin and payment records remain unchanged; amounts due recompute without discounts.
+- Updated planning-stage calculation rules, tests, and standalone premium prototype to remove future AppleCare credit claims. The optional family-trip fund is only an idea, with no money automatically allocated.
+- Verification: all **17 automated tests passed** in a local run; Chromium mobile browser checks for live tracker and preview had no JS exceptions and no sideways scrolling. GitHub Pages propagation not independently verified.
