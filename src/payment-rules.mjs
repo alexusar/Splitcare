@@ -15,18 +15,10 @@ export function calculateMemberLedger(baseCents, records, targetMonth) {
     byMonth.set(record.month, record);
   }
   if (!byMonth.has(targetMonth)) byMonth.set(targetMonth, {month:targetMonth,multiplier:1,confirmed:false});
-  let availableCreditCents = 0, target = null;
-  for (const month of [...byMonth.keys()].sort()) {
-    const r = byMonth.get(month);
-    const creditAppliedCents = r.multiplier === 0 ? 0 : Math.min(availableCreditCents, baseCents);
-    const dueCents = r.multiplier * baseCents - creditAppliedCents;
-    const earnedCreditCents = r.confirmed && r.multiplier > 1 ? (r.multiplier - 1) * baseCents : 0;
-    if (month === targetMonth) target = {
-      month, multiplier:r.multiplier, baseCents, dueCents, creditAvailableCents:availableCreditCents,
-      creditAppliedCents, earnedCreditCents,
-      status:r.multiplier===0?"waived":r.confirmed?"confirmed":"due"
-    };
-    if (r.confirmed && r.multiplier !== 0) availableCreditCents = availableCreditCents - creditAppliedCents + earnedCreditCents;
-  }
-  return target;
+  const r=byMonth.get(targetMonth);
+  return {
+    month:targetMonth, multiplier:r.multiplier, baseCents,
+    dueCents:r.multiplier * baseCents,
+    status:r.multiplier===0?"waived":r.confirmed?"confirmed":"due"
+  };
 }
