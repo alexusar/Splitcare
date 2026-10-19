@@ -1,5 +1,5 @@
 /** Planning-stage domain rules. Not yet integrated into the live site. Money is integer cents. */
-export const WHEEL_SLICES = Object.freeze([1,2,1,0,1,3,1,2,1,1]);
+export const WHEEL_SLICES = Object.freeze(Array.from({length:100},(_,i)=>i<10?0:i<90?1:i<99?2:3));
 export function multiplierForSlice(index) {
   if (!Number.isInteger(index) || index < 0 || index >= WHEEL_SLICES.length) throw new RangeError("Invalid wheel slice index");
   return WHEEL_SLICES[index];
