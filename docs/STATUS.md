@@ -83,3 +83,10 @@ Change statuses only with a linked commit, acceptance tests, and observed deploy
 - Updated live due calculations to ignore all prior months' payments and removed applied-credit display and CSV column. Existing stored spin and payment records remain unchanged; amounts due recompute without discounts.
 - Updated planning-stage calculation rules, tests, and standalone premium prototype to remove future AppleCare credit claims. The optional family-trip fund is only an idea, with no money automatically allocated.
 - Verification: all **17 automated tests passed** in a local run; Chromium mobile browser checks for live tracker and preview had no JS exceptions and no sideways scrolling. GitHub Pages propagation not independently verified.
+
+## Monthly payments no longer earn future credit — 2026-10-19
+- Updated the live `index.html` payment calculation: each month is independent, `due = base × wheel multiplier`. A 2× or 3× payment never reduces later AppleCare bills, including if marked paid.
+- Removed obsolete carry-forward credit wording from the live tracker, payment details, and CSV export. Existing spin/payment histories are preserved; displayed dues recalculate under the clarified rule.
+- Updated the separate premium dashboard to explain no future AppleCare credits; "Trip idea" is illustrative only, with **no automatic trip allocation or real fund**.
+- Updated `src/payment-rules.mjs` and domain tests for independent monthly amounts. Verified all **17/17** repository tests locally, both screens load in mobile Chromium at 390px with no JS page errors or horizontal overflow.
+- The tracker remains per-device, not shared/authenticated; prior saved spins are not altered.
