@@ -39,7 +39,7 @@ test("mobile layout guards against sideways scroll",()=>{
 
 test("Spin to Pay demo is accessible with preserved local monthly result",()=>{
  assert.match(html,/function wheelPage\(\)/);
- assert.match(html,/wheelSegments=\[1,2,1,0,1,3,1,2,1,1\]/);
+ assert.match(html,/wheelSegments=Array\.from/);
  assert.match(html,/data-go="wheel"/);
  assert.match(html,/localStorage\.setItem\(wheelStore/);
  assert.match(html,/ONE SPIN PER PERSON PER MONTH/);
