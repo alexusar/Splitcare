@@ -24,3 +24,15 @@ test("reset removes every local spin while keeping verified payments",()=>{
  assert.match(js,/e\.verification==="waived"/);
  assert.match(js,/Manually verified payments and receipts will be kept/);
 });
+
+test("trip pot counts only paid extra from 2x and 3x spins",()=>{
+ assert.match(js,/function tripExtra\(id,spin\)/);
+ assert.match(js,/spin\.value<=1/);
+ assert.match(js,/base\*\(spin\.value-1\)/);
+ assert.match(js,/if\(d\.entries\?\.\[k\]\?\.paid\)/);
+ assert.match(js,/confirmed=round\(confirmed\+extra\)/);
+ assert.match(js,/pending=round\(pending\+extra\)/);
+ assert.match(html,/id="tripTotal"/);
+ assert.match(html,/id="tripFill"/);
+ assert.match(html,/id="tripGoal"/);
+});
