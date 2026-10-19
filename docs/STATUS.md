@@ -90,3 +90,10 @@ Change statuses only with a linked commit, acceptance tests, and observed deploy
 - Updated the separate premium dashboard to explain no future AppleCare credits; "Trip idea" is illustrative only, with **no automatic trip allocation or real fund**.
 - Updated `src/payment-rules.mjs` and domain tests for independent monthly amounts. Verified all **17/17** repository tests locally, both screens load in mobile Chromium at 390px with no JS page errors or horizontal overflow.
 - The tracker remains per-device, not shared/authenticated; prior saved spins are not altered.
+
+## Family trip pot — 2026-10-19
+- Live root tracker adds a family trip pot above the payment checklist, with a $500 default goal, progress bar, per-member contributions, and a separate pending-extra label.
+- Once a 2× or 3× payment is marked paid on this browser, only the extra over the base monthly amount counts for the trip (e.g. $10 extra for 2×, $20 extra for 3× on a $10 base). Unpaid spins never inflate confirmed pot total. FREE and 1× contribute $0.
+- Progress aggregates recorded paid extra contributions across all saved months; goal can be edited while amount editing is unlocked. Newly created spins snapshot the base amount for more stable accounting. Historical old spins without snapshots use current member base as fallback.
+- Pot is a tracker, not a real bank account. It is not synced across devices and does not deduct from future AppleCare amounts. Manual payment confirmation is not proof of transfer.
+- Browser tested on 390px viewport: $10 confirmed + $20 pending correct, 10% progress of $100 goal, no JS errors or horizontal scrolling. Node suite **18/18** passed locally.
