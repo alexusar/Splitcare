@@ -2,12 +2,12 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { WHEEL_SLICES, multiplierForSlice, calculateMemberLedger } from "../src/payment-rules.mjs";
 
-test("wheel keeps 10% free, 60% 1x, 20% 2x, and 10% 3x", () => {
+test("wheel keeps 10% free, 80% 1x, 9% 2x, and 1% 3x", () => {
   const counts=WHEEL_SLICES.reduce((acc,v)=>({...acc,[v]:(acc[v]||0)+1}),{});
-  assert.deepEqual(counts,{0:1,1:6,2:2,3:1});
+  assert.deepEqual(counts,{0:10,1:80,2:9,3:1});
   assert.equal(multiplierForSlice(3),0);
-  assert.equal(multiplierForSlice(5),3);
-  assert.throws(()=>multiplierForSlice(10),RangeError);
+  assert.equal(multiplierForSlice(99),3);
+  assert.throws(()=>multiplierForSlice(100),RangeError);
 });
 test("3x payment pending creates no credit", () => {
   const x=calculateMemberLedger(1000,[{month:"2026-10",multiplier:3,confirmed:false}],"2026-10");
