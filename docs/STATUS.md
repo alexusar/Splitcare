@@ -70,3 +70,10 @@ Change statuses only with a linked commit, acceptance tests, and observed deploy
 - Zelle QR and recipient identity are deliberately hidden until an authenticated/private backend exists; payment links do not work yet.
 - Mobile headless Chromium verified: member → submit → admin → cannot approve without checking acknowledgement → approve; 390px viewport no overflow or page errors.
 - Dashboard contract suite: 9/9 locally passing. GitHub Actions status still to be verified; production root tracker unchanged.
+
+## Interim family trial and rare triple-spin odds — 2026-10-18
+- Updated live root tracker and separate premium prototype to wheel odds **10% FREE, 80% 1×, 9% 2×, 1% 3×**. Triple slice visually occupies only 3.6°. Previously saved spins retain their outcomes. This changes future spins only.
+- Live tracker payment details now offer **I sent payment — share update** via native share sheet or copy fallback; it is self-reported and requires independent confirmation by the organizer. Wheel dialog also offers share-result action.
+- No real signup/sign-in, family data sync, server-enforced one-spin cap or payment validation is available without an authenticated backend. Never present demo login as real.
+- Domain and dashboard tests updated for revised odds: **15/15 passed in isolated Node run**. Headless Chromium at 390px showed no JS errors or horizontal overflow on live tracker or separate prototype. GitHub Pages propagation was not independently verified.
+- No personal Zelle QR, phone number, or financial receipts were committed.
