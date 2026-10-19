@@ -35,7 +35,7 @@ aside{background:linear-gradient(180deg,#191b2ed9,#151725f5);border-right:1px so
 (()=>{"use strict";
 const app={role:"member",screen:"overview",demoPending:[],demoApproved:[],demoSubmissions:[],member:"Dana",invite:"",formVerified:false};
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])),cash=n=>"$"+Number(n).toFixed(2);
-const entries=[{name:"Mom",due:10,result:"1×",status:"Confirmed",date:"Oct 8",credit:0},{name:"Dana",due:20,result:"2×",status:"Due",date:"",credit:0},{name:"JLo",due:10,result:"1×",status:"Pending review",date:"Oct 13",credit:0},{name:"Caro",due:0,result:"FREE",status:"Waived",date:"",credit:10}];
+const entries=[{name:"Mom",due:10,result:"1×",status:"Confirmed",date:"Oct 8"},{name:"Dana",due:20,result:"2×",status:"Due",date:""},{name:"JLo",due:10,result:"1×",status:"Pending review",date:"Oct 13"},{name:"Caro",due:0,result:"FREE",status:"Waived",date:""}];
 const status=s=>'<span class="tag '+(s==="Confirmed"||s==="Waived"?"ok":s.includes("Pending")?"warn":"")+'">'+esc(s)+'</span>';
 const line=(title,desc,right)=>'<div class="list-row"><div class="person"><span class="avatar">'+esc(title.charAt(0))+'</span><div><strong>'+esc(title)+'</strong><div class="muted">'+esc(desc)+'</div></div></div><div>'+right+'</div></div>';
 const card=(title,content,cls="")=>'<div class="card '+cls+'"><div class="card-title">'+title+'</div>'+content+'</div>';
